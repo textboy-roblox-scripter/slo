@@ -4,9 +4,9 @@ import requests
 import base64
 
 TOKEN = "YOUR_DISCORD_BOT_TOKEN"
-GITHUB_TOKEN = "YOUR_GITHUB_TOKEN"
-GITHUB_USER = "yourgithub"
-LUA_OBF_API_KEY = "YOUR_LUAOBFUSCATOR_API_KEY"
+GITHUB_TOKEN = "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"
+GITHUB_USER = "parascipts"
+LUA_OBF_API_KEY = "d86bcb68-37d9-734-a471-710074d645fd25ff"
 
 client = discord.Client(intents=discord.Intents.default())
 tree = app_commands.CommandTree(client)
